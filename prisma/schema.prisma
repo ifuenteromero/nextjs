@@ -18,13 +18,17 @@ datasource db {
 // https://www.prisma.io/docs/orm/overview/databases/mysql
 
 model User {
-  id        Int     @id @default(autoincrement())
-  email     String  @unique
-  name      String
-  followers Int     @default(0)
-  isActive  Boolean @default(true)
+  id           Int      @id @default(autoincrement())
+  email        String   @unique
+  name         String
+  followers    Int      @default(0)
+  isActive     Boolean  @default(true)
+  registeredAt DateTime @default(now())
 }
 
 // npx prisma format
 // prisma model
 // https://www.prisma.io/docs/orm/prisma-schema/data-model/models#defining-attributes
+
+// npx prisma migrate dev
+// para mongo npx prisma db push
