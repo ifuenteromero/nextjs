@@ -16,3 +16,15 @@ datasource db {
 // prisma connection string
 // https://www.google.com/search?q=prisma+connection+string&rlz=1C1CHBD_esES1062ES1062&oq=prisma+connection+st&gs_lcrp=EgZjaHJvbWUqBwgAEAAYgAQyBwgAEAAYgAQyBggBEEUYOTIHCAIQABiABDIHCAMQABiABDIICAQQABgWGB4yCAgFEAAYFhgeMggIBhAAGBYYHjIICAcQABgWGB4yCAgIEAAYFhgeMg0ICRAAGIYDGIAEGIoFqAIIsAIB&sourceid=chrome&ie=UTF-8
 // https://www.prisma.io/docs/orm/overview/databases/mysql
+
+model User {
+  id        Int     @id @default(autoincrement())
+  email     String  @unique
+  name      String
+  followers Int     @default(0)
+  isActive  Boolean @default(true)
+}
+
+// npx prisma format
+// prisma model
+// https://www.prisma.io/docs/orm/prisma-schema/data-model/models#defining-attributes
