@@ -26,6 +26,10 @@ const UploadPage = () => {
 					const _publicId = info.public_id;
 					setPublicId(_publicId);
 				}}
+				options={{
+					sources: ['local'],
+					maxFiles: 5,
+				}}
 			>
 				{({ open }) => (
 					<button className='btn btn-primary' onClick={() => open()}>
