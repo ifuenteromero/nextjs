@@ -6,6 +6,7 @@ const NavBar = () => {
 			<Link href='/'>Next.js</Link>
 			<Link href='/users'>Users</Link>
 			<Link href='/admin'>Admin</Link>
+			<Link href='/api/auth/signin'>Login</Link>
 		</nav>
 	);
 };
