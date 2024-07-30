@@ -17,7 +17,10 @@ const NavBar = () => {
 					<Link href='/api/auth/signout'>Sign out</Link>
 				</div>
 			) : (
-				<Link href='/api/auth/signin'>Login</Link>
+				<div className='flex gap-5'>
+					<Link href='/api/auth/signin'>Login</Link>
+					<Link href='/signup'>Sign up</Link>
+				</div>
 			)}
 		</nav>
 	);
