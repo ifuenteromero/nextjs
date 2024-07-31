@@ -5,14 +5,19 @@ import Image from 'next/image';
 
 export default async function Home() {
 	return (
-		<main>
+		<main className='relative h-screen'>
 			<Image
 				// src={dj}
 				// alt='dj'
 				src='https://bit.ly/react-cover'
 				alt='react logo'
-				width={300}
-				height={170}
+				fill
+				// style={{ objectFit: 'contain' }}
+				// style={{ objectFit: 'cover' }}
+				className='object-cover'
+				sizes='(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw'
+				quality={100}
+				priority
 			/>
 		</main>
 	);
