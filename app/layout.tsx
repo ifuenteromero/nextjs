@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import AuthProvider from './auth/Provider';
 import './globals.css';
+import GoogleAnalyticsScript from './GoogleAnalyticsScript';
 import NavBar from './NavBar';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -18,6 +19,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html data-theme='winter' lang='en'>
+			<GoogleAnalyticsScript />
 			<body className={inter.className}>
 				<AuthProvider>
 					<NavBar />
