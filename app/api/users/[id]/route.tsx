@@ -10,7 +10,7 @@ export const GET = async (
 		params: { id: string };
 	}
 ) => {
-	const user = await prisma.user.findUnique({ where: { id: parseInt(id) } });
+	const user = await prisma.user.findUnique({ where: { id } });
 	if (!user)
 		return NextResponse.json({ error: 'User not found' }, { status: 404 });
 	return NextResponse.json(user);
@@ -24,7 +24,7 @@ export const PUT = async (
 		params: { id: string };
 	}
 ) => {
-	const user = await prisma.user.findUnique({ where: { id: parseInt(id) } });
+	const user = await prisma.user.findUnique({ where: { id } });
 	if (!user)
 		return NextResponse.json({ error: 'User not found' }, { status: 404 });
 
@@ -32,7 +32,7 @@ export const PUT = async (
 	if (body.email) {
 		const emailAlreadyUsed = await prisma.user.findFirst({
 			where: {
-				AND: [{ email: body.email }, { NOT: { id: parseInt(id) } }],
+				AND: [{ email: body.email }, { NOT: { id } }],
 			},
 		});
 		if (emailAlreadyUsed)
@@ -51,7 +51,7 @@ export const PUT = async (
 		return NextResponse.json(validation.error.errors, { status: 400 });
 
 	const updatedUser = await prisma.user.update({
-		where: { id: parseInt(id) },
+		where: { id },
 		data: newUser,
 	});
 
@@ -62,7 +62,7 @@ export const DELETE = async (
 	request: NextRequest,
 	{ params: { id } }: { params: { id: string } }
 ) => {
-	const user = await prisma.user.findUnique({ where: { id: parseInt(id) } });
+	const user = await prisma.user.findUnique({ where: { id } });
 	if (!user)
 		return NextResponse.json({ error: 'User not found' }, { status: 404 });
 

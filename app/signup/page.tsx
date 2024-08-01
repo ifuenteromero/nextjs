@@ -9,7 +9,7 @@ const RegisterUser = () => {
 	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		const form = e.currentTarget as HTMLFormElement;
-		const name = form.name.value;
+		const name = form.name;
 		console.log({ name });
 	};
 
