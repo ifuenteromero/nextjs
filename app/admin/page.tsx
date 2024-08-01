@@ -1,6 +1,13 @@
 'use client';
+import dynamic from 'next/dynamic';
 import { useState } from 'react';
-import HeavyComponent from '../components/HeavyComponent';
+const HeavyComponent = dynamic(
+	() => import('@/app/components/HeavyComponent'),
+	{
+		loading: () => <p>Loading...</p>,
+		ssr: false,
+	}
+);
 
 const AdminHomePage = () => {
 	const [isVisible, setVisible] = useState(false);
