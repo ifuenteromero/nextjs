@@ -1,3 +1,5 @@
+import prisma from '@/prisma/client';
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 interface Props {
@@ -12,3 +14,14 @@ const UserDetailPage = ({ params: { id } }: Props) => {
 };
 
 export default UserDetailPage;
+
+export const generateMetadata = async ({
+	params,
+}: Props): Promise<Metadata> => {
+	const id = params.id;
+	const user = await prisma.user.findUnique({ where: { id: id.toString() } });
+	return {
+		title: `User ${user?.name}`,
+		description: `User ${user?.name} details`,
+	};
+};

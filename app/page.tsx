@@ -1,6 +1,7 @@
 // a pesar de que  es un archivo .jpg, se visualiza como un archivo .webp
 // el tamaño aparece como memorizado, si desactivamos la cache, se puede ver el tamaño reducido
 // import dj from '@/public/images/dj.jpg';
+import { Metadata } from 'next';
 import Image from 'next/image';
 
 export default async function Home() {
@@ -22,3 +23,12 @@ export default async function Home() {
 		</main>
 	);
 }
+
+export const metadata: Metadata = {
+	title: 'Homepage',
+	description: 'homepage description',
+	openGraph: {
+		title: 'homepage',
+		description: 'homepage description',
+	},
+};
