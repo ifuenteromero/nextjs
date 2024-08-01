@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Roboto } from 'next/font/google';
 import AuthProvider from './auth/Provider';
 import './globals.css';
 import GoogleAnalyticsScript from './GoogleAnalyticsScript';
 import NavBar from './NavBar';
 
+// variable fonts use a single file to represent a wide range of font styles, so we no need to specify the font weight
 const inter = Inter({ subsets: ['latin'] });
+const roboto = Roboto({ subsets: ['latin'], weight: ['400', '500', '900'] });
 
 export const metadata: Metadata = {
 	title: 'Create Next App',
@@ -20,7 +22,7 @@ export default function RootLayout({
 	return (
 		<html data-theme='winter' lang='en'>
 			<GoogleAnalyticsScript />
-			<body className={inter.className}>
+			<body className={roboto.className}>
 				<AuthProvider>
 					<NavBar />
 					<main className='p-5'>{children}</main>

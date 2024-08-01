@@ -8,7 +8,9 @@ const NavBar = () => {
 		<nav className='flex bg-slate-200 p-3 gap-5'>
 			<Link href='/'>Next.js</Link>
 			<Link href='/users'>Users</Link>
-			<Link href='/admin'>Admin</Link>
+			<Link className='font-extrabold italic' href='/admin'>
+				Admin
+			</Link>
 			{status === 'loading' ? (
 				<div>Loading...</div>
 			) : status === 'authenticated' ? (
